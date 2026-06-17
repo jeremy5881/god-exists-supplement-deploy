@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#faf8f2">
+<title>真的有一位上帝吗？（补充版）</title>
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" id="theme-link" href="assets/themes/editorial-serif.css">
+<link rel="stylesheet" href="assets/animations/animations.css">
+<style>
+/* Custom styles for this deck */
+body{--font-sans:'Noto Serif SC','Playfair Display',serif;--font-display:'Noto Serif SC','Playfair Display',serif}
+.slide.full{justify-content:center;text-align:center}
+.slide.cover{background:linear-gradient(180deg,#faf7f2 0%,#f0e8d8 100%)}
+.slide.cover h1{font-size:76px;line-height:1.15;font-weight:800;color:#1b1410;letter-spacing:-.01em}
+.slide.cover .verse{font-size:22px;color:#8a7868;font-style:italic;margin-top:18px;letter-spacing:.04em}
+.slide.section{background:linear-gradient(135deg,#8a2a1c 0%,#6b1f13 100%);text-align:center}
+.slide.section .num{font-size:120px;font-weight:900;color:rgba(255,255,255,.1);line-height:1;margin-bottom:-30px}
+.slide.section h2{color:#fff;font-size:48px;margin:0}
+.slide.section p{color:rgba(255,255,255,.6);font-size:18px;margin-top:12px}
+.slide.section .deck-footer span{color:rgba(255,255,255,.4)}
+
+/* verse block */
+.verse-block{background:var(--surface-2);border-left:4px solid var(--accent);padding:20px 28px;border-radius:0 var(--radius) var(--radius) 0;margin:10px 0}
+.verse-block .ref{font-size:14px;color:var(--accent);font-weight:600;margin-bottom:6px}
+.verse-block .text{font-size:18px;line-height:1.7;color:var(--text-1)}
+.verse-block .text em{color:var(--accent-2);font-style:normal}
+
+/* card grid for 4/5 items */
+.card-grid{display:grid;gap:20px;margin-top:24px}
+.card-grid.g4{grid-template-columns:repeat(4,1fr)}
+.card-grid.g5{grid-template-columns:repeat(5,1fr)}
+.card-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;text-align:center;box-shadow:var(--shadow);transition:transform .3s var(--ease)}
+.card-item:hover{transform:translateY(-4px)}
+.card-item .icon{font-size:48px;margin-bottom:12px}
+.card-item h4{font-size:18px;margin-bottom:8px;color:var(--text-1)}
+.card-item p{font-size:14px;color:var(--text-2);line-height:1.6}
+.card-item.accent{border-top:3px solid var(--accent)}
+
+/* comparison table */
+.vs-table{display:grid;grid-template-columns:1fr 60px 1fr;gap:0;margin-top:28px;align-items:start}
+.vs-table .col-header{padding:16px 20px;font-weight:700;font-size:17px;text-align:center}
+.vs-table .col-header.true{background:var(--accent);color:#fff;border-radius:var(--radius) var(--radius) 0 0}
+.vs-table .col-header.false{background:var(--text-3);color:#fff;border-radius:var(--radius) var(--radius) 0 0}
+.vs-table .row-item{padding:14px 20px;font-size:15px;line-height:1.5;border-bottom:1px solid var(--border)}
+.vs-table .row-item.true{background:color-mix(in srgb,var(--good) 8%,transparent);color:var(--text-1)}
+.vs-table .row-item.false{background:color-mix(in srgb,var(--bad) 6%,transparent);color:var(--text-2)}
+.vs-table .vs-icon{display:flex;align-items:center;justify-content:center;padding:14px 0;font-size:24px;color:var(--text-3);font-weight:700;border-bottom:1px solid transparent}
+.vs-table .row-last{border-radius:0 0 var(--radius) var(--radius)}
+
+/* section divider subtitle */
+.section-sub{max-width:680px;margin:0 auto;font-size:17px;color:rgba(255,255,255,.7);line-height:1.7}
+
+/* attributes list */
+.attr-list{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+.attr-list .attr{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px 20px}
+.attr-list .attr h4{font-size:17px;color:var(--accent);margin-bottom:6px}
+.attr-list .attr p{font-size:14px;color:var(--text-2);line-height:1.6}
+
+/* reflection questions */
+.reflect-q{background:var(--surface-2);border-radius:var(--radius);padding:24px 28px;margin:16px 0}
+.reflect-q .q-num{display:inline-block;background:var(--accent);color:#fff;width:32px;height:32px;border-radius:50%;text-align:center;line-height:32px;font-weight:700;font-size:16px;margin-right:12px}
+.reflect-q p{display:inline;font-size:17px;line-height:1.7;color:var(--text-1)}
+
+/* prayer */
+.prayer{max-width:640px;margin:0 auto;text-align:center;font-style:italic;font-size:20px;line-height:2;color:var(--text-1)}
+.prayer .amen{font-style:normal;font-weight:700;margin-top:24px;color:var(--accent)}
+
+/* intro text */
+.intro-text{font-size:17px;line-height:1.8;color:var(--text-2);max-width:720px}
+
+/* icon row */
+.icon-row{display:flex;gap:32px;justify-content:center;margin-top:28px;flex-wrap:wrap}
+.icon-row .icon-box{text-align:center;width:140px}
+.icon-row .icon-box .ico{font-size:40px;margin-bottom:8px}
+.icon-row .icon-box h5{font-size:15px;color:var(--text-1);margin:0 0 4px}
+.icon-row .icon-box p{font-size:12px;color:var(--text-3)}
+
+/* new supplement badge */
+.badge-supp{display:inline-block;background:var(--accent);color:#fff;font-size:11px;padding:2px 10px;border-radius:999px;margin-left:10px;vertical-align:middle;font-weight:600;letter-spacing:.06em}
+
+/* trinity diagram */
+.trinity-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px}
+.trinity-card{text-align:center;padding:28px 20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius)}
+.trinity-card .label{font-size:13px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.trinity-card h4{font-size:20px;margin-bottom:8px}
+.trinity-card p{font-size:14px;color:var(--text-2);line-height:1.6}
+.trinity-verse{margin-top:28px;text-align:center;font-size:15px;color:var(--text-2);font-style:italic}
+
+/* fullscreen overlay */
+#fs-overlay{position:fixed;inset:0;z-index:9999;background:linear-gradient(180deg,#faf7f2,#f0e8d8);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
+#fs-overlay h2{font-family:var(--font-display);font-size:36px;color:#1b1410;margin:0}
+#fs-overlay p{font-size:17px;color:#8a7868;margin:0}
+#fs-overlay button{background:var(--accent);color:#fff;border:none;padding:14px 48px;border-radius:var(--radius);font-size:18px;font-weight:600;cursor:pointer}
+#fs-overlay button:active{transform:scale(.97)}
+#fs-hint{font-size:13px;color:var(--text-3);margin-top:8px}
+
+@media(orientation:landscape) and (max-width:1024px){
+  .slide{padding:16px 48px!important}
+  h1.h1,.h1{font-size:32px!important}
+  h2.h2,.h2{font-size:24px!important}
+  .card-grid.g4{grid-template-columns:repeat(2,1fr)!important;gap:12px!important}
+  .card-grid.g5{grid-template-columns:repeat(3,1fr)!important;gap:12px!important}
+  .card-grid.g3{grid-template-columns:repeat(3,1fr)!important;gap:12px!important}
+  .grid.g2{grid-template-columns:1fr 1fr!important;gap:12px!important}
+  .trinity-row{grid-template-columns:repeat(3,1fr)!important;gap:12px!important}
+  .vs-table{grid-template-columns:1fr 40px 1fr!important}
+}
+</style>
+</head>
+<body>
+<div id="fs-overlay">
+  <h2>真的有一位上帝吗？</h2>
+  <p>补充版 · 圣经课程系列</p>
+  <button id="fs-btn">点击开始播放</button>
+  <div id="fs-hint">建议横屏观看 · 左右滑动翻页</div>
+</div>
+<div class="deck" data-themes="editorial-serif,minimal-white,soft-pastel,academic-paper" data-theme-base="assets/themes/">
+
+<!-- ============ SLIDE 1: COVER ============ -->
+<section class="slide full cover is-active" data-title="封面">
+  <div class="anim-stagger-list">
+    <p class="kicker">圣经课程系列 · 补充版</p>
+    <h1 class="h1 anim-fade-up" data-anim="fade-up">
+      真的有一位<br>上帝吗？
+    </h1>
+    <p class="verse anim-fade-up" data-anim="fade-up">
+      「诸天述说神的荣耀，穹苍传扬他的手段。」
+      <br><span style="font-size:15px;opacity:.7">— 诗篇 19:1</span>
+    </p>
+    <div class="row wrap mt-l" style="justify-content:center">
+      <span class="pill pill-accent">补充版</span>
+      <span class="pill">协和堂金田聚会·慕道班</span>
+      <span class="pill">← 左右滑动翻页 →</span>
+    </div>
+  </div>
+  <div class="deck-footer"><span>第3课 · 补充版</span><span class="slide-number" data-current="1" data-total="17"></span></div>
+  <div class="notes">欢迎来到第3课补充版。在原有课程基础上，我们加入了更多来自"上帝-认识神"讲义的内容，帮助大家更深入地认识这位独一的真神。今天我们要一起探讨一个深刻的问题：真的有一位上帝吗？</div>
+</section>
+
+<!-- ============ SLIDE 2: 核心经文（补充版） ============ -->
+<section class="slide" data-title="核心经文">
+  <p class="kicker">核心经文 <span class="badge-supp">补充</span></p>
+  <h2 class="h2">上帝的启示<br>在圣经中显明</h2>
+  <div class="grid g2 mt-l" style="gap:16px">
+    <div class="verse-block anim-fade-up" data-anim="fade-up">
+      <div class="ref">诗篇 19:1</div>
+      <div class="text">诸天述说神的荣耀，穹苍传扬他的手段。</div>
+    </div>
+    <div class="verse-block anim-fade-up" data-anim="fade-up">
+      <div class="ref">传道书 3:11</div>
+      <div class="text">神造万物，各按其时成为美好，又将永生安置在世人心里。</div>
+    </div>
+    <div class="verse-block anim-fade-up" data-anim="fade-up">
+      <div class="ref">以赛亚书 42:8</div>
+      <div class="text">我是耶和华，这是我的名。我必不将我的荣耀归给假神。</div>
+    </div>
+    <div class="verse-block anim-fade-up" data-anim="fade-up" style="border-left-color:var(--accent-2)">
+      <div class="ref" style="color:var(--accent-2)">约翰福音 1:1-5 <span class="badge-supp" style="background:var(--accent-2)">补充</span></div>
+      <div class="text">太初有道，道与神同在，道就是神。万物都是藉着他造的……生命在他里头，这生命就是人的光。</div>
+    </div>
+  </div>
+  <div class="verse-block mt-m" style="border-left-color:var(--accent-2)">
+    <div class="ref" style="color:var(--accent-2)">罗马书 1:19-20 <span class="badge-supp" style="background:var(--accent-2)">补充</span></div>
+    <div class="text">神的事情，人所能知道的，原显明在人心里……自从造天地以来，神的永能和神性是明明可知的，虽是眼不能见，但<em>藉着所造之物就可以晓得</em>，叫人无可推诿。</div>
+  </div>
+  <div class="deck-footer"><span>第3课 · 补充版</span><span class="slide-number" data-current="2" data-total="17"></span></div>
+  <div class="notes">本课核心经文从原来的三节扩展为五处。约翰福音1章告诉我们"道就是神"，万有都是藉着祂造的。罗马书1章明确说：神已经透过受造之物向人显明自己，人在神面前没有借口说不知道。</div>
+</section>
+
+<!-- ============ SLIDE 3: 核心内容 ============ -->
+<section class="slide" data-title="核心内容">
+  <p class="kicker">核心内容</p>
+  <h2 class="h2">上帝透过受造之物<br>向我们显明自己</h2>
+  <p class="lede mt-m">圣经告诉我们，上帝虽然肉眼看不见，却透过<strong>宇宙的秩序</strong>、<strong>人心的良知</strong>与<strong>生命深处对意义的渴望</strong>，向我们显明祂真实的存在。</p>
+  <div class="icon-row mt-l anim-stagger-list" data-anim-target>
+    <div class="icon-box">
+      <div class="ico">🌌</div>
+      <h5>宇宙的证据</h5>
+      <p>从精密秩序看见创造者的智慧</p>
+    </div>
+    <div class="icon-box">
+      <div class="ico">💡</div>
+      <h5>良知的见证</h5>
+      <p>道德感指向绝对公义的源头</p>
+    </div>
+    <div class="icon-box">
+      <div class="ico">❤️</div>
+      <h5>永恒的渴望</h5>
+      <p>生命对爱与意义的追求来自上帝</p>
+    </div>
+  </div>
+  <div class="deck-footer"><span>第3课 · 补充版</span><span class="slide-number" data-current="3" data-total="17"></span></div>
+  <div class="notes">上帝虽然肉眼不可见，但祂在创造中留下的痕迹清晰可见。宇宙的精妙秩序不是随机产物，人类跨越文化的道德共识指向一位立法者，人心深处对永恒和意义的渴望——正如帕斯卡尔所说"人心有个洞，只有上帝能填满"。</div>
+</section>
+
+<!-- ============ SLIDE 4: SECTION 01 过渡 ============ -->
+<section class="slide full section" data-title="第一章 过渡">
+  <div class="num">01</div>
+  <h2>上帝是否存在</h2>
+  <p class="section-sub">从宇宙到人心的印记——圣经告诉我们，上帝虽不以肉眼可见，<br>却在祂所创造的世界中留下清晰的"痕迹"，使真心寻求的人可以看见。</p>
+  <div class="deck-footer"><span>第3课 · 补充版</span><span class="slide-number" data-current="4" data-total="17"></span></div>
+  <div class="notes">进入第一章节。我们提到"上帝"时，每个人心中都有不同画面——有人想象祂是慈爱的长者，有人想到庙宇中的偶像，也有人联想到科学课里的宇宙起源。本课邀请大家不急着下结论，带着开放的心一起探讨。</div>
+</section>
+
+<!-- ============ SLIDE 5: 四个角度 ============ -->
+<section class="slide" data-title="四个角度">
+  <p class="kicker">01 · 上帝存在吗？</p>
+  <h2 class="h2">四个角度<br>看见创造主的痕迹</h2>
+  <div class="card-grid g4 anim-stagger-list" data-anim-target>
+    <div class="card-item">
+      <div class="icon">🔭</div>
+      <h4>宇宙的精密与秩序</h4>
+      <p>地球绕日距离、DNA结构、生态平衡——这些不像随意演化的产物，而像出自智慧设计者。</p>
+    </div>
+    <div class="card-item">
+      <div class="icon">⚖️</div>
+      <h4>人的良知与道德感</h4>
+      <p>跨文化、跨时代的道德共识，指向一位超越人类的道德立法者。人是按上帝形象被造的。</p>
+    </div>
+    <div class="card-item">
+      <div class="icon">✨</div>
+      <h4>对永恒与爱的渴望</h4>
+      <p>"神将永生安置在世人心里"。人心有个洞，只有上帝能填满。——帕斯卡尔</p>
+    </div>
+    <div class="card-item">
+      <div class="icon">🌤️</div>
+      <h4>看不见不等于不存在</h4>
+      <p>空气、思想、爱都看不见，却深刻影响生命。上帝也是如此，祂借着万物让人经历祂。</p>
+    </div>
+  </div>
+  <div class="deck-footer"><span>第3课 · 补充版</span><span class="slide-number" data-current="5" data-total="17"></span></div>
+  <div class="notes">四个角度帮助我们看见——宇宙不是混乱随机的，道德不是人类发明的，人心对永恒的渴望也不是偶然。而"看不见"从来不是"不存在"的理由：空气、引力、爱——我们都看不见，却天天活在它们的影响中。</div>
+</section>
+
+<!-- ============ SLIDE 6: 神自我的显明（PDF补充） ============ -->
+<section class="slide" data-title="神自我的显明">
+  <p class="kicker">01 补充 <span class="badge-supp">新内容</span></p>
+  <h2 class="h2">神自我的显明<br>三个层次</h2>
+  <p class="lede mt-s">无限的神必须先将自己显明给有限的人。人可以尝试靠自己去寻找神，但最终会迷失方向。<br>「你考察就能测透神吗？你岂能尽情测透全能者吗？」— 约伯记 11:7</p>
+  <div class="card-grid g3 mt-l anim-stagger-list" data-anim-target>
+    <div class="card-item accent">
+      <div class="icon">🌍</div>
+      <h4>藉着创造<br>普遍性的启示</h4>
+      <p>每一件事情的发生，背后必定有一个导因。美丽的创造物背后必定有位奇妙的创造主。「诸天述说祂的荣耀；穹苍传扬祂的手段」(诗19:1)</p>
+    </div>
+    <div class="card-item accent">
+      <div class="icon">📖</div>
+      <h4>藉着圣经<br>特殊性的启示</h4>
+      <p>神藉着祂所默示的话语启示自己，永远记载在圣经里。「圣经都是神所默示的，于教训、督责、使人归正、教导人学义，都是有益处的。」(提后3:16-17)</p>
+    </div>
+    <div class="card-item accent">
+      <div class="icon">✝️</div>
+      <h4>藉着耶稣基督<br>永活的道</h4>
+      <p>「神既在古时藉着众先知多次多方晓谕列祖，就在这末世藉着祂儿子晓谕我们。」(来1:1-2) 道成了肉身，住在我们中间。(约1:14)</p>
+    </div>
+  </div>
+  <div class="deck-footer"><span>第3课 · 补充版</span><span class="slide-number" data-current="6" data-total="17"></span></div>
+  <div class="notes">这是补充的重要内容。神用三种方式显明自己：第一是创造——宇宙万物就是无言见证；第二是圣经——神写下来的话语；第三是耶稣基督——神亲自以人的样式来到世上。"人看见了我，就是看见了父"(约14:9)。</div>
+</section>
+
+<!-- ============ SLIDE 7: SECTION 02 过渡 ============ -->
+<section class="slide full section" data-title="第二章 过渡">
+  <div class="num">02</div>
+  <h2>上帝的属性与创世之工</h2>
+  <p class="section-sub">一位能被认识、值得信靠的创造主——<br>圣经启示的上帝不是抽象的力量，而是有位格、可认识、愿意自我启示的创造主。</p>
+  <div class="deck-footer"><span>第3课 · 补充版</span><span class="slide-number" data-current="7" data-total="17"></span></div>
+  <div class="notes">进入第二章节。在认识上帝是否存在之后，另一个关键问题是：这位上帝到底是谁？祂的性情、能力与心意如何影响我们的生命？</div>
+</section>
+
+<!-- ============ SLIDE 8: 五个面向 ============ -->
+<section class="slide" data-title="五个面向">
+  <p class="kicker">02 · 上帝的属性</p>
+  <h2 class="h2">认识上帝的<br>五个面向</h2>
+  <div class="card-grid g3 mt-l anim-stagger-list" data-anim-target>
+    <div class="card-item">
+      <h4>全能的</h4>
+      <p>从无到有创造万物，以大能托住宇宙运行。祂的全能是为了拯救，为人开路。</p>
+    </div>
+    <div class="card-item">
+      <h4>智慧无法测度</h4>
+      <p>蜂巢六角结构、人体细胞运作——都反映出创造者深邃的智慧。</p>
+    </div>
+    <div class="card-item">
+      <h4>慈爱的</h4>
+      <p>主动寻找人的父亲。浪子回头的故事描绘了上帝的心：等待、接纳、拥抱。</p>
+    </div>
+    <div class="card-item">
+      <h4>圣洁且公义</h4>
+      <p>完全纯净，不与罪恶相容。在十字架上，圣洁与慈爱完美相遇。</p>
+    </div>
+    <div class="card-item">
+      <h4>创造之工</h4>
+      <p>上帝创造世界并称其为"甚好"。人按祂形象被造，拥有尊严、价值与使命。</p>
+    </div>
+    <div class="card-item accent">
+      <h4>永不改变 <span class="badge-supp">补</span></h4>
+      <p>「天地都要灭没，你却要长存……惟有你永不改变」(诗102:26-27)。神的属性完美统一、恒久不变。</p>
+    </div>
+  </div>
+  <div class="deck-footer"><span>第3课 · 补充版</span><span class="slide-number" data-current="8" data-total="17"></span></div>
+  <div class="notes">原有的五个面向加上"永不改变"这一关键属性。神的全能、智慧、慈爱、圣洁、创造——每一项都不是孤立的，而是完美统一的。而且神说"我必不将我的荣耀归给假神"，祂是独一的。</div>
+</section>
+
+<!-- ============ SLIDE 9: 神是个灵 + 自有永有（PDF补充） ============ -->
+<section class="slide" data-title="神是个灵">
+  <p class="kicker">02 补充 · 神的属性 <span class="badge-supp">新内容</span></p>
+  <h2 class="h2">神是个灵<br>自有永有</h2>
+  <div class="grid g2 mt-l" style="gap:24px">
+    <div class="card anim-fade-up" data-anim="fade-up">
+      <h4 style="color:var(--accent);font-size:20px">神是个灵</h4>
+      <p style="font-size:15px;line-height:1.8;color:var(--text-2)">
+        「神是个灵，所以拜他的，必须用心灵和诚实拜他。」（约4:24）
+      </p>
+      <p style="font-size:15px;line-height:1.8;color:var(--text-2);margin-top:12px">
+        神不受物质和空间的限制，祂是<strong>无所不在</strong>的。「创造宇宙和其中万物的神，既是天地的主，就不住人手所造的殿。」（徒17:24）
+      </p>
+      <p style="font-size:15px;line-height:1.8;color:var(--text-2);margin-top:8px">
+        神是<strong>不灭的存在</strong>，而物质本身是可以毁灭的。属灵的特性体现了神的超越性。
+      </p>
+    </div>
+    <div class="card anim-fade-up" data-anim="fade-up">
+      <h4 style="color:var(--accent);font-size:20px">自有永有</h4>
+      <p style="font-size:15px;line-height:1.8;color:var(--text-2)">
+        「神对摩西说：『我是自有永有的。』」（出3:14）
+      </p>
+      <p style="font-size:15px;line-height:1.8;color:var(--text-2);margin-top:12px">
+        神是<strong>永活的神</strong>，与毫无生气的金银铁石偶像形成本质对立。祂是<strong>生命的源头</strong>（约5:26），不依赖任何其他事物存在。
+      </p>
+      <p style="font-size:15px;line-height:1.8;color:var(--text-2);margin-top:8px">
+        自有永有体现神的<strong>无所不知</strong>（赛46:10；来4:13）和<strong>永不改变</strong>（雅1:17）。
+      </p>
+    </div>
+  </div>
+  <div class="verse-block mt-m">
+    <div class="ref">以赛亚书 44:6</div>
+    <div class="text">「我是首先的，我是末后的，除我以外，再没有真神。」</div>
+  </div>
+  <div class="deck-footer"><span>第3课 · 补充版</span><span class="slide-number" data-current="9" data-total="17"></span></div>
+  <div class="notes">补充两个关键属性：神是个灵——祂不是物质世界的产物，不受空间限制；自有永有——祂不需要任何外在原因来存在，祂就是一切存在的源头。这两点使真神与一切被造的偶像彻底区别开来。</div>
+</section>
+
+<!-- ============ SLIDE 10: 三位一体（PDF补充） ============ -->
+<section class="slide" data-title="三位一体">
+  <p class="kicker">02 补充 · 三位一体 <span class="badge-supp">新内容</span></p>
+  <h2 class="h2">三位一体<br>独一真神的奥秘</h2>
+  <div class="verse-block mt-m">
+    <div class="ref">马太福音 28:18-20</div>
+    <div class="text">「天上地下所有的权柄都赐给我了。所以你们要去，使万民作我的门徒，<em>奉父、子、圣灵的名</em>给他们施洗。」</div>
+  </div>
+  <div class="trinity-row mt-l anim-stagger-list" data-anim-target>
+    <div class="trinity-card">
+      <div class="label">第一位格</div>
+      <h4>圣父</h4>
+      <p>创造之主，万有的源头。差遣独生子来到世上，为要拯救世人。</p>
+    </div>
+    <div class="trinity-card">
+      <div class="label">第二位格</div>
+      <h4>圣子 · 耶稣基督</h4>
+      <p>道成肉身，住在我们中间。在十字架上成就救恩，死而复活。</p>
+    </div>
+    <div class="trinity-card">
+      <div class="label">第三位格</div>
+      <h4>圣灵</h4>
+      <p>叫人知罪、引导人进入真理。住在信徒心中，赐下新生命的能力。</p>
+    </div>
+  </div>
+  <div class="trinity-verse mt-l">
+    「圣经明确提到神只有一位，但有明确的三个位格。<br>这是圣洁的奥秘，人的智慧永远无法测透。<br>圣父是神，圣子是神，圣灵是神；但不是三位神，而是一位神。」
+  </div>
+  <div class="deck-footer"><span>第3课 · 补充版</span><span class="slide-number" data-current="10" data-total="17"></span></div>
+  <div class="notes">三位一体是基督教信仰的核心奥秘。位格（hypostasis）在神学中意为"一个智慧生命的存在显现"。父有父的位格，子有子的位格，灵有灵的位格——但三位格生命的本质完全相同。正如基督是"上帝本体的真像"(来1:3)，位格不同但本质为一。</div>
+</section>
+
+<!-- ============ SLIDE 11: SECTION 03 过渡 ============ -->
+<section class="slide full section" data-title="第三章 过渡">
+  <div class="num">03</div>
+  <h2>独一真神与假神</h2>
+  <p class="section-sub">圣经带领我们看见一条清晰的界线——<br>独一真神与其他宗教或民间信仰中的神明，在本质上完全不同。</p>
+  <div class="deck-footer"><span>第3课 · 补充版</span><span class="slide-number" data-current="11" data-total="17"></span></div>
+  <div class="notes">进入第三章节。如果世界上有这么多宗教、这么多神明，那圣经中的上帝有什么不同？这个问题并不轻率，许多慕道朋友都会面对文化中丰富的信仰背景。</div>
+</section>
+
+<!-- ============ SLIDE 12: 四条界线 ============ -->
+<section class="slide" data-title="四条界线">
+  <p class="kicker">03 · 独一真神</p>
+  <h2 class="h2">四条界线<br>区分真神与假神</h2>
+  <div class="vs-table mt-l">
+    <div class="col-header true">✓ 独一真神</div>
+    <div class="vs-icon" style="background:transparent"></div>
+    <div class="col-header false">✗ 其他神明</div>
+
+    <div class="row-item true">自有永有、永恒、非被造的创造主</div>
+    <div class="vs-icon">↔</div>
+    <div class="row-item false">源自自然崇拜、人类祖先或故事人物，属被造之物</div>
+
+    <div class="row-item true">全能、全知、全在、永不改变，属性完美统一</div>
+    <div class="vs-icon">↔</div>
+    <div class="row-item false">能力有限、有缺陷、带有人性的情绪与嫉妒</div>
+
+    <div class="row-item true">主动寻找人，用恩典（非交换）建立关系</div>
+    <div class="vs-icon">↔</div>
+    <div class="row-item false">人须透过供奉、献祭来"讨好"神明，换取祝福</div>
+
+    <div class="row-item true row-last">救赎出于恩典，因信称义，不靠功德</div>
+    <div class="vs-icon" style="border-bottom:none">↔</div>
+    <div class="row-item false row-last">强调积善、修行、功德，无法触及"罪"的根源</div>
+  </div>
+  <div class="deck-footer"><span>第3课 · 补充版</span><span class="slide-number" data-current="12" data-total="17"></span></div>
+  <div class="notes">四条界线帮助我们清晰区分。最关键的区别：真神是创造主，假神是被造物；真神主动寻找人、用恩典建立关系，假神需要人用行为讨好；真神的救赎出于恩典，不靠人的功德。</div>
+</section>
+
+<!-- ============ SLIDE 13: 神的称谓（PDF补充） ============ -->
+<section class="slide" data-title="神的称谓">
+  <p class="kicker">03 补充 · 神的称谓 <span class="badge-supp">新内容</span></p>
+  <h2 class="h2">神的圣名<br>在圣经中的启示</h2>
+  <div class="card-grid g3 mt-l anim-stagger-list" data-anim-target>
+    <div class="card-item accent">
+      <h4>Elohim<br>（以罗欣）</h4>
+      <p>在希伯来文中不仅指代上帝，也暗示了祂的全能和主权，表明上帝是宇宙的主宰和君王。</p>
+    </div>
+    <div class="card-item accent">
+      <h4>耶和华<br>（YHWH）</h4>
+      <p>意为"我是那我是"（I AM WHO I AM），强调了上帝的永恒性和自存性，表明上帝是自有永有的。</p>
+    </div>
+    <div class="card-item accent">
+      <h4>上帝</h4>
+      <p>在基督教信仰中，是对至高无上创造者的尊称，代表了对神的崇敬和信仰。</p>
+    </div>
+  </div>
+  <p class="kicker mt-l">耶和华的复合名</p>
+  <div class="card-grid g3 mt-s anim-stagger-list" data-anim-target>
+    <div class="card-item">
+      <h4>耶和华以勒</h4>
+      <p>「耶和华必预备」——上帝是供应者，祂预见并满足我们的需要。</p>
+    </div>
+    <div class="card-item">
+      <h4>耶和华拉法</h4>
+      <p>「耶和华必医治」——上帝是医治者，祂关心我们的身心健康。</p>
+    </div>
+    <div class="card-item">
+      <h4>耶和华尼西</h4>
+      <p>「耶和华是我的旌旗」——上帝是我们的领导者和保护者，在困难中引导我们。</p>
+    </div>
+  </div>
+  <div class="deck-footer"><span>第3课 · 补充版</span><span class="slide-number" data-current="13" data-total="17"></span></div>
+  <div class="notes">这是补充的重要内容。Elohim强调神的主权与全能，耶和华(YHWH)揭示神的自存与永恒。而耶和华的复合名——以勒(预备)、拉法(医治)、尼西(旌旗)——每一个名字都表达了神与祂子民关系的不同面向。</div>
+</section>
+
+<!-- ============ SLIDE 14: 神的本质（PDF补充） ============ -->
+<section class="slide" data-title="神的本质">
+  <p class="kicker">04 补充 · 神的本质 <span class="badge-supp">新内容</span></p>
+  <h2 class="h2">上帝就是光<br>上帝就是爱<br>上帝就是生命</h2>
+  <div class="card-grid g3 mt-l anim-stagger-list" data-anim-target>
+    <div class="card-item accent">
+      <div class="icon">💡</div>
+      <h4>上帝就是光</h4>
+      <p>神创造的第一件事就是光。「要有光，就有了光。」（创1:3）耶稣说：「我就是世界的光，凡跟从我的就不在黑暗里面走。」（约8:12）基督徒成为上帝光明的子女，将光照进黑暗的世界。</p>
+    </div>
+    <div class="card-item accent">
+      <div class="icon">❤️</div>
+      <h4>上帝就是爱</h4>
+      <p>「神就是爱；住在爱里面的，就是住在神里面。」（约壹4:16）爱是从父的本性而来，神是爱的源头和本体。神的爱是对所爱之人全然无私的关怀与供应。</p>
+    </div>
+    <div class="card-item accent">
+      <div class="icon">🌱</div>
+      <h4>上帝就是生命</h4>
+      <p>神是生命的创造者和维持者，所有生命都源自祂。「认识你独一的真神，并且认识你所差来的耶稣基督，这就是永生。」（约17:3）</p>
+    </div>
+  </div>
+  <div class="deck-footer"><span>第3课 · 补充版</span><span class="slide-number" data-current="14" data-total="17"></span></div>
+  <div class="notes">三个"上帝就是……"揭示了神本质的更深层次：光是神的圣洁与真理的彰显，爱是神的本性与关系的核心，生命是神的源头性——祂不仅创造生命，祂本身就是生命，并将永生应许给我们。</div>
+</section>
+
+<!-- ============ SLIDE 15: 神的作为（PDF补充） ============ -->
+<section class="slide" data-title="神的作为">
+  <p class="kicker">05 补充 · 神的作为 <span class="badge-supp">新内容</span></p>
+  <h2 class="h2">上帝的爱、圣洁<br>公义与信实</h2>
+  <div class="grid g2 mt-l" style="gap:20px">
+    <div class="card anim-fade-up" data-anim="fade-up">
+      <h4 style="color:var(--accent)">❤️ 爱</h4>
+      <p style="font-size:14px;line-height:1.7;color:var(--text-2)">
+        「耶和华，耶和华，是有怜悯有恩典的神，不轻易发怒，并有丰盛的慈爱和诚实。」（出34:6）
+      </p>
+    </div>
+    <div class="card anim-fade-up" data-anim="fade-up">
+      <h4 style="color:var(--accent)">🕊️ 圣洁</h4>
+      <p style="font-size:14px;line-height:1.7;color:var(--text-2)">
+        「圣哉，圣哉，圣哉，主神是昔在今在以后永在的全能者。」（启4:8）神的圣洁体现祂的独一性——独立于受造界之外，不能容忍罪恶。
+      </p>
+    </div>
+    <div class="card anim-fade-up" data-anim="fade-up">
+      <h4 style="color:var(--accent)">⚖️ 公义</h4>
+      <p style="font-size:14px;line-height:1.7;color:var(--text-2)">
+        「因为耶和华是公义的，祂喜爱公义。」（诗11:7）神的公义是祂本质的真实表达——什么是正确、什么是错误，以神而非人的标准衡量。
+      </p>
+    </div>
+    <div class="card anim-fade-up" data-anim="fade-up">
+      <h4 style="color:var(--accent)">🤝 信实</h4>
+      <p style="font-size:14px;line-height:1.7;color:var(--text-2)">
+        「所以，你要知道耶和华你的神，祂是神，是信实的神。」（申7:9）神遵守自己的所有承诺，断不更改祂的话语和应许。
+      </p>
+    </div>
+  </div>
+  <div class="verse-block mt-m">
+    <div class="ref">民数记 23:19</div>
+    <div class="text">「神非人，必不致说谎，也非人子，必不致后悔。祂说话岂不照着行呢？祂发言岂不要成就呢？」</div>
+  </div>
+  <div class="deck-footer"><span>第3课 · 补充版</span><span class="slide-number" data-current="15" data-total="17"></span></div>
+  <div class="notes">四个关键词概括了神与人的互动方式：爱是动机，圣洁是标准，公义是原则，信实是保证。神不会改变祂的应许，祂所说的必然成就。这是人能够信靠祂的根基。</div>
+</section>
+
+<!-- ============ SLIDE 16: 进深与思考 ============ -->
+<section class="slide" data-title="进深与思考">
+  <p class="kicker">进深与思考</p>
+  <h2 class="h2">反思与回应</h2>
+  <div class="mt-l anim-stagger-list" data-anim-target>
+    <div class="reflect-q">
+      <span class="q-num">1</span>
+      <p>当你回望自己的人生，是否曾有某些时刻——在大自然前、在痛苦里、在被爱的时候——隐约感觉到"好像有一位更大的存在"？</p>
+    </div>
+    <div class="reflect-q">
+      <span class="q-num">2</span>
+      <p>今天所分享的上帝属性中（全能、智慧、慈爱、圣洁、公义），哪一种最触动你的心？它与你现在的处境有关吗？</p>
+    </div>
+    <div class="reflect-q">
+      <span class="q-num">3</span>
+      <p>在你的成长背景中，曾接触过哪些关于"神明"的观念？这些观念与你今天所认识的"独一真神"有什么不同？</p>
+    </div>
+  </div>
+  <p class="dim mt-l" style="font-size:15px;text-align:center">
+    鼓励大家诚实面对自己的经历和疑惑。<br>上帝亲自回应真心寻求的人。
+  </p>
+  <div class="deck-footer"><span>第3课 · 补充版</span><span class="slide-number" data-current="16" data-total="17"></span></div>
+  <div class="notes">这三个反思问题鼓励大家不急着下结论，而是诚实面对自己的经历和疑惑。上帝不害怕我们的疑问，祂亲自回应真心寻求的人。大家可以分组讨论，也可以作为课后默想的题目。</div>
+</section>
+
+<!-- ============ SLIDE 17: 本周祷文 ============ -->
+<section class="slide full" data-title="祷文" style="background:linear-gradient(180deg,#faf7f2 0%,#f0e8d8 100%)">
+  <div class="prayer anim-fade-up" data-anim="fade-up">
+    <p style="font-size:24px;font-weight:700;font-style:normal;margin-bottom:24px">本周祷文</p>
+    <p>亲爱的天父上帝：</p>
+    <p>感谢祢借着宇宙、人心与圣经，<br>
+    使我们认识祢是真实、慈爱又智慧的创造主。</p>
+    <p>求祢开启我们的眼睛，<br>
+    让我们在每天的生活里看见祢的引导；</p>
+    <p>也开启我们的心，<br>
+    使我们愿意向祢敞开，<br>
+    被祢的真理与爱触摸。</p>
+    <p>愿祢带领我们一步一趋更认识祢。</p>
+    <p class="amen">奉主耶稣基督的名祷告，阿们。</p>
+  </div>
+  <div class="deck-footer"><span>第3课 · 补充版</span><span class="slide-number" data-current="17" data-total="17"></span></div>
+  <div class="notes">让我们一起用这周祷文结束今天的课程。感谢神透过万事万物向我们说话，求祂继续开启我们的眼睛和心。愿这周大家在生活中看见神的引导，更认识这位真实、慈爱的上帝。</div>
+</section>
+
+</div><!-- /.deck -->
+<script src="assets/runtime.js"></script>
+<script>
+(function(){
+  var _sx=0,_sy=0,TH=50;
+  function goSlide(dir){
+    var slides=document.querySelectorAll('.deck > .slide');
+    var cur=document.querySelector('.slide.is-active');
+    if(!cur){if(slides[0])slides[0].classList.add('is-active');return}
+    var idx=[].indexOf.call(slides,cur);
+    var next=(dir>0)?slides[idx+1]:slides[idx-1];
+    if(next){cur.classList.remove('is-active');next.classList.add('is-active')}
+  }
+  document.addEventListener('touchstart',function(e){
+    if(e.touches.length!==1)return;
+    _sx=e.touches[0].clientX;_sy=e.touches[0].clientY;
+  },{passive:true});
+  document.addEventListener('touchend',function(e){
+    if(!_sx)return;
+    var t=e.changedTouches[0];
+    var dx=t.clientX-_sx, dy=t.clientY-_sy;
+    if(Math.abs(dx)>TH&&Math.abs(dx)>Math.abs(dy)){goSlide(dx<0?1:-1)}
+    _sx=_sy=0;
+  },{passive:true});
+  var btn=document.getElementById('fs-btn');
+  if(btn)btn.onclick=function(){document.getElementById('fs-overlay').style.display='none'}
+})();
+</script>
+</body>
+</html>
