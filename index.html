@@ -117,6 +117,70 @@ body{--font-sans:'Noto Serif SC','Playfair Display',serif;--font-display:'Noto S
   .trinity-row{grid-template-columns:repeat(3,1fr)!important;gap:12px!important}
   .vs-table{grid-template-columns:1fr 40px 1fr!important}
 }
+
+/* portrait / narrow phone (width < 768px) */
+@media(max-width:767px){
+  .deck{overflow-y:auto}
+  .slide{
+    position:relative!important;
+    padding:20px 16px!important;
+    min-height:100vh;min-height:100dvh;
+    transform:none!important;
+    justify-content:flex-start!important;
+    opacity:1!important;pointer-events:auto!important;
+  }
+  .slide:not(.is-active){display:none}
+  .slide.full{justify-content:center!important}
+  .slide.section{justify-content:center!important}
+  h1.h1,.h1{font-size:28px!important;margin-bottom:10px!important}
+  h2.h2,.h2{font-size:22px!important;margin-bottom:8px!important}
+  h3,.h3{font-size:18px!important}
+  h4,.h4{font-size:15px!important}
+  .lede{font-size:15px!important}
+  .kicker{font-size:12px!important}
+  .slide.cover h1{font-size:32px!important}
+  .slide.cover .verse{font-size:16px!important}
+  .slide.section h2{font-size:26px!important}
+  .slide.section .num{font-size:72px!important;margin-bottom:-20px}
+  .section-sub{font-size:14px!important}
+  .card-grid{grid-template-columns:1fr!important;gap:10px!important;margin-top:14px!important}
+  .grid.g2{grid-template-columns:1fr!important;gap:10px!important}
+  .grid.g3{grid-template-columns:1fr!important;gap:10px!important}
+  .trinity-row{grid-template-columns:1fr!important;gap:10px!important}
+  .card-item{padding:16px 14px!important}
+  .card-item h4{font-size:15px!important;margin-bottom:4px}
+  .card-item p{font-size:13px!important}
+  .card-item .icon{font-size:32px!important;margin-bottom:6px}
+  .vs-table{grid-template-columns:1fr 30px 1fr!important;margin-top:14px!important}
+  .vs-table .col-header{padding:10px 8px!important;font-size:13px!important}
+  .vs-table .row-item{padding:8px!important;font-size:12px!important}
+  .vs-table .vs-icon{font-size:16px!important;padding:8px 0!important}
+  .verse-block{padding:12px 14px!important}
+  .verse-block .text{font-size:14px!important}
+  .verse-block .ref{font-size:12px!important}
+  .icon-row{gap:16px!important;flex-wrap:wrap!important}
+  .icon-row .icon-box{width:80px!important}
+  .icon-row .icon-box .ico{font-size:28px!important}
+  .icon-row .icon-box h5{font-size:12px!important}
+  .icon-row .icon-box p{font-size:10px!important}
+  .reflect-q{padding:14px 16px!important;margin:10px 0!important}
+  .reflect-q .q-num{width:26px!important;height:26px!important;line-height:26px!important;font-size:13px!important}
+  .reflect-q p{font-size:14px!important}
+  .prayer{font-size:15px!important;max-width:100%!important}
+  .deck-footer{font-size:12px!important;padding:8px 16px!important;position:sticky!important;bottom:0!important;background:var(--bg)!important;z-index:5}
+  .trinity-card{padding:14px 12px!important}
+  .trinity-card h4{font-size:16px!important}
+  .trinity-card p{font-size:13px!important}
+  .trinity-verse{font-size:13px!important}
+}
+
+/* narrow landscape phone */
+@media(orientation:landscape) and (max-height:500px){
+  .slide{padding:8px 40px!important}
+  h1.h1,.h1{font-size:26px!important}
+  h2.h2,.h2{font-size:20px!important}
+  .deck-footer{font-size:11px!important;padding:4px 16px!important}
+}
 </style>
 </head>
 <body>
