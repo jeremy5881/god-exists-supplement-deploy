@@ -106,80 +106,122 @@ body{--font-sans:'Noto Serif SC','Playfair Display',serif;--font-display:'Noto S
 #fs-guide .step-num{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--text-3);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
 #fs-guide .ios-share{margin:8px 0;font-size:24px}
 
-@media(orientation:landscape) and (max-width:1024px){
-  .slide{padding:16px 48px!important}
-  h1.h1,.h1{font-size:32px!important}
-  h2.h2,.h2{font-size:24px!important}
-  .card-grid.g4{grid-template-columns:repeat(2,1fr)!important;gap:12px!important}
-  .card-grid.g5{grid-template-columns:repeat(3,1fr)!important;gap:12px!important}
-  .card-grid.g3{grid-template-columns:repeat(3,1fr)!important;gap:12px!important}
-  .grid.g2{grid-template-columns:1fr 1fr!important;gap:12px!important}
-  .trinity-row{grid-template-columns:repeat(3,1fr)!important;gap:12px!important}
-  .vs-table{grid-template-columns:1fr 40px 1fr!important}
-}
-
-/* portrait / narrow phone (width < 768px) */
-@media(max-width:767px){
-  .deck{overflow-y:auto}
+/* ── MOBILE: unified portrait + landscape (width≤767 OR phone-height≤500) ── */
+@media(max-width:767px), (max-height:500px) and (orientation:landscape){
+  /* deck → scrollable container */
+  .deck{
+    overflow-y:auto;overflow-x:hidden;
+    height:100vh;height:100dvh;
+    -webkit-overflow-scrolling:touch;
+  }
+  /* slides → inline scroll items, no absolute positioning */
   .slide{
     position:relative!important;
-    padding:20px 16px!important;
+    inset:auto!important;
+    padding:18px 14px!important;
     min-height:100vh;min-height:100dvh;
     transform:none!important;
     justify-content:flex-start!important;
+    align-items:center!important;
     opacity:1!important;pointer-events:auto!important;
+    overflow:visible!important;
   }
+  .slide>:not(.deck-footer){width:100%;max-width:440px}
   .slide:not(.is-active){display:none}
   .slide.full{justify-content:center!important}
   .slide.section{justify-content:center!important}
-  h1.h1,.h1{font-size:28px!important;margin-bottom:10px!important}
-  h2.h2,.h2{font-size:22px!important;margin-bottom:8px!important}
-  h3,.h3{font-size:18px!important}
-  h4,.h4{font-size:15px!important}
-  .lede{font-size:15px!important}
-  .kicker{font-size:12px!important}
-  .slide.cover h1{font-size:32px!important}
-  .slide.cover .verse{font-size:16px!important}
-  .slide.section h2{font-size:26px!important}
-  .slide.section .num{font-size:72px!important;margin-bottom:-20px}
-  .section-sub{font-size:14px!important}
-  .card-grid{grid-template-columns:1fr!important;gap:10px!important;margin-top:14px!important}
-  .grid.g2{grid-template-columns:1fr!important;gap:10px!important}
-  .grid.g3{grid-template-columns:1fr!important;gap:10px!important}
-  .trinity-row{grid-template-columns:1fr!important;gap:10px!important}
-  .card-item{padding:16px 14px!important}
-  .card-item h4{font-size:15px!important;margin-bottom:4px}
-  .card-item p{font-size:13px!important}
-  .card-item .icon{font-size:32px!important;margin-bottom:6px}
-  .vs-table{grid-template-columns:1fr 30px 1fr!important;margin-top:14px!important}
-  .vs-table .col-header{padding:10px 8px!important;font-size:13px!important}
-  .vs-table .row-item{padding:8px!important;font-size:12px!important}
-  .vs-table .vs-icon{font-size:16px!important;padding:8px 0!important}
-  .verse-block{padding:12px 14px!important}
-  .verse-block .text{font-size:14px!important}
-  .verse-block .ref{font-size:12px!important}
-  .icon-row{gap:16px!important;flex-wrap:wrap!important}
-  .icon-row .icon-box{width:80px!important}
-  .icon-row .icon-box .ico{font-size:28px!important}
-  .icon-row .icon-box h5{font-size:12px!important}
-  .icon-row .icon-box p{font-size:10px!important}
-  .reflect-q{padding:14px 16px!important;margin:10px 0!important}
-  .reflect-q .q-num{width:26px!important;height:26px!important;line-height:26px!important;font-size:13px!important}
-  .reflect-q p{font-size:14px!important}
-  .prayer{font-size:15px!important;max-width:100%!important}
-  .deck-footer{font-size:12px!important;padding:8px 16px!important;position:sticky!important;bottom:0!important;background:var(--bg)!important;z-index:5}
-  .trinity-card{padding:14px 12px!important}
-  .trinity-card h4{font-size:16px!important}
-  .trinity-card p{font-size:13px!important}
-  .trinity-verse{font-size:13px!important}
-}
 
-/* narrow landscape phone */
-@media(orientation:landscape) and (max-height:500px){
-  .slide{padding:8px 40px!important}
-  h1.h1,.h1{font-size:26px!important}
-  h2.h2,.h2{font-size:20px!important}
-  .deck-footer{font-size:11px!important;padding:4px 16px!important}
+  /* typography */
+  h1.h1,.h1{font-size:26px!important;margin-bottom:8px!important;line-height:1.2!important}
+  h2.h2,.h2{font-size:20px!important;margin-bottom:6px!important;line-height:1.25!important}
+  h3,.h3{font-size:17px!important}
+  h4,.h4{font-size:14px!important}
+  .lede{font-size:14px!important;max-width:95%!important}
+  .kicker{font-size:11px!important;letter-spacing:.04em!important}
+  .slide.cover h1{font-size:30px!important}
+  .slide.cover .verse{font-size:14px!important}
+  .slide.section h2{font-size:22px!important}
+  .slide.section .num{font-size:64px!important;margin-bottom:-16px}
+  .section-sub{font-size:13px!important}
+
+  /* all grids → single column */
+  .card-grid,.grid.g2,.grid.g3,.grid.g4,.trinity-row,.attr-list{
+    grid-template-columns:1fr!important;
+    gap:8px!important;margin-top:10px!important;
+  }
+
+  /* cards */
+  .card-item{padding:12px 14px!important;text-align:left!important;display:flex!important;align-items:center!important;gap:10px!important}
+  .card-item .icon{font-size:28px!important;margin:0!important;flex-shrink:0}
+  .card-item h4{font-size:14px!important;margin-bottom:2px!important}
+  .card-item p{font-size:12px!important;line-height:1.45!important}
+  .card-item.accent{border-top-width:2px!important}
+  .card-item .icon+*{flex:1}
+
+  /* trinity */
+  .trinity-card{padding:12px 14px!important}
+  .trinity-card h4{font-size:15px!important}
+  .trinity-card p{font-size:12px!important}
+  .trinity-verse{font-size:12px!important;margin-top:12px!important}
+
+  /* vs table */
+  .vs-table{grid-template-columns:1fr 24px 1fr!important;margin-top:10px!important;font-size:11px!important}
+  .vs-table .col-header{padding:8px 6px!important;font-size:11px!important}
+  .vs-table .row-item{padding:6px 8px!important;font-size:11px!important;line-height:1.35!important}
+  .vs-table .vs-icon{font-size:14px!important;padding:6px 0!important}
+
+  /* verse blocks */
+  .verse-block{padding:10px 12px!important;margin:6px 0!important}
+  .verse-block .text{font-size:13px!important;line-height:1.5!important}
+  .verse-block .ref{font-size:11px!important}
+
+  /* icon row */
+  .icon-row{gap:12px!important;flex-wrap:wrap!important;justify-content:center!important}
+  .icon-row .icon-box{width:70px!important}
+  .icon-row .icon-box .ico{font-size:24px!important}
+  .icon-row .icon-box h5{font-size:11px!important}
+  .icon-row .icon-box p{font-size:10px!important}
+
+  /* reflection */
+  .reflect-q{padding:10px 14px!important;margin:8px 0!important}
+  .reflect-q .q-num{width:24px!important;height:24px!important;line-height:24px!important;font-size:12px!important}
+  .reflect-q p{font-size:13px!important}
+
+  /* prayer */
+  .prayer{font-size:14px!important;max-width:100%!important;line-height:1.7!important}
+
+  /* misc */
+  .pill{font-size:11px!important;padding:4px 10px!important}
+  .badge-supp{font-size:10px!important;padding:1px 7px!important;margin-left:6px!important}
+  .row.wrap{gap:8px!important}
+  .mt-l{margin-top:14px!important}
+  .mt-m{margin-top:10px!important}
+
+  /* deck footer → sticky bottom */
+  .deck-footer{
+    font-size:11px!important;
+    padding:6px 14px!important;
+    position:sticky!important;bottom:0!important;
+    background:var(--bg)!important;z-index:5;
+    margin-top:auto!important;
+  }
+  .slide.section .deck-footer{background:transparent!important}
+  .slide.section .deck-footer span{color:rgba(255,255,255,.4)!important}
+
+  /* narrow landscape: compact text */
+  @media(max-height:420px){
+    .slide{padding:10px 12px!important;min-height:unset!important}
+    h1.h1,.h1{font-size:22px!important}
+    h2.h2,.h2{font-size:17px!important}
+    .slide.cover h1{font-size:24px!important}
+    .card-item .icon{font-size:22px!important}
+    .card-item{padding:8px 10px!important}
+    .card-item h4{font-size:13px!important}
+    .card-item p{font-size:11px!important}
+    .verse-block{padding:7px 10px!important;margin:4px 0!important}
+    .verse-block .text{font-size:11px!important}
+    .deck-footer{padding:4px 10px!important;font-size:10px!important}
+  }
 }
 </style>
 </head>
