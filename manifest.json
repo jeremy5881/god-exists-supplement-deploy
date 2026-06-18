@@ -1,0 +1,14 @@
+{
+  "name": "真的有一位上帝吗？（补充版）",
+  "short_name": "上帝存在",
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#faf7f2",
+  "theme_color": "#8a2a1c",
+  "icons": [{
+    "src": "icon.png",
+    "sizes": "180x180",
+    "type": "image/png"
+  }]
+}

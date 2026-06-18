@@ -12,6 +12,8 @@
 <link rel="stylesheet" href="assets/base.css">
 <link rel="stylesheet" id="theme-link" href="assets/themes/editorial-serif.css">
 <link rel="stylesheet" href="assets/animations/animations.css">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon.png">
 <style>
 /* Custom styles for this deck */
 body{--font-sans:'Noto Serif SC','Playfair Display',serif;--font-display:'Noto Serif SC','Playfair Display',serif}
@@ -93,12 +95,16 @@ body{--font-sans:'Noto Serif SC','Playfair Display',serif;--font-display:'Noto S
 .trinity-verse{margin-top:28px;text-align:center;font-size:15px;color:var(--text-2);font-style:italic}
 
 /* fullscreen overlay */
-#fs-overlay{position:fixed;inset:0;z-index:9999;background:linear-gradient(180deg,#faf7f2,#f0e8d8);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
-#fs-overlay h2{font-family:var(--font-display);font-size:36px;color:#1b1410;margin:0}
-#fs-overlay p{font-size:17px;color:#8a7868;margin:0}
+#fs-overlay{position:fixed;inset:0;z-index:9999;background:linear-gradient(180deg,#faf7f2,#f0e8d8);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
+#fs-overlay h2{font-family:var(--font-display);font-size:32px;color:#1b1410;margin:0}
+#fs-overlay p{font-size:16px;color:#8a7868;margin:0;text-align:center}
 #fs-overlay button{background:var(--accent);color:#fff;border:none;padding:14px 48px;border-radius:var(--radius);font-size:18px;font-weight:600;cursor:pointer}
 #fs-overlay button:active{transform:scale(.97)}
-#fs-hint{font-size:13px;color:var(--text-3);margin-top:8px}
+#fs-hint{font-size:13px;color:var(--text-3);margin-top:4px}
+#fs-guide{max-width:280px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;text-align:center}
+#fs-guide .step{display:flex;align-items:flex-start;gap:10px;margin:10px 0;font-size:14px;color:var(--text-2);text-align:left}
+#fs-guide .step-num{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--text-3);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+#fs-guide .ios-share{margin:8px 0;font-size:24px}
 
 @media(orientation:landscape) and (max-width:1024px){
   .slide{padding:16px 48px!important}
@@ -118,7 +124,13 @@ body{--font-sans:'Noto Serif SC','Playfair Display',serif;--font-display:'Noto S
   <h2>真的有一位上帝吗？</h2>
   <p>补充版 · 圣经课程系列</p>
   <button id="fs-btn">点击开始播放</button>
-  <div id="fs-hint">建议横屏观看 · 左右滑动翻页</div>
+  <div id="fs-hint">← → 翻页 · S 演讲模式 · F 全屏</div>
+  <div id="fs-guide" style="display:none">
+    <p style="font-size:13px;color:var(--accent);font-weight:600;margin-bottom:8px">无地址栏全屏播放</p>
+    <div class="step"><span class="step-num">1</span><span>点击 Safari 底部 <span class="ios-share">↗</span> 分享按钮</span></div>
+    <div class="step"><span class="step-num">2</span><span>滑到第二行，点「<b>添加到主屏幕</b>」</span></div>
+    <div class="step"><span class="step-num">3</span><span>点「添加」，从主屏幕图标打开</span></div>
+  </div>
 </div>
 <div class="deck" data-themes="editorial-serif,minimal-white,soft-pastel,academic-paper" data-theme-base="assets/themes/">
 
@@ -584,6 +596,21 @@ body{--font-sans:'Noto Serif SC','Playfair Display',serif;--font-display:'Noto S
     _sx=_sy=0;
   },{passive:true});
   var btn=document.getElementById('fs-btn');
+  var guide=document.getElementById('fs-guide');
+
+  // iOS Safari: show "Add to Home Screen" guide
+  var isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent)&&!window.MSStream;
+  var isStandalone=window.navigator.standalone;
+  var isSafari=isIOS&&/Safari/.test(navigator.userAgent)&&!/CriOS|FxiOS|OPiOS|mercury/.test(navigator.userAgent);
+
+  if(isStandalone){
+    // Opened from Home Screen → already fullscreen, skip overlay
+    document.getElementById('fs-overlay').style.display='none';
+  }else if(isSafari){
+    // iOS Safari → show Add-to-Home-Screen guide
+    if(guide)guide.style.display='block';
+  }
+
   if(btn)btn.onclick=function(){document.getElementById('fs-overlay').style.display='none'}
 })();
 </script>
